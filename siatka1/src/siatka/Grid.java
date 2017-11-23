@@ -70,4 +70,7 @@ public class Grid {
 
     }
 
+    public Element getElement ( int i ) {
+        return elements[i];
+    }
 }
