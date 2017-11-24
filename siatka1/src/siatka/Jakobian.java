@@ -23,10 +23,10 @@ public class Jakobian {
     }
 
     private void J_odw ( ElementGlobal el, double[] x, double[] y, int k ) {
-        J_odw[0][0] = el.getdN_po_eta()[k][0] * y[0] + el.getdN_po_eta()[k][1] * y[1] + el.getdN_po_eta()[k][2] * y[2] + el.getdN_po_eta()[k][3] * y[3];
-        J_odw[1][0] = -1 * ( el.getdN_po_ksi()[k][0] * y[0] + el.getdN_po_ksi()[k][1] * y[1] + el.getdN_po_ksi()[k][2] * y[2] + el.getdN_po_ksi()[k][3] * y[3] );
-        J_odw[0][1] = -1 * ( el.getdN_po_eta()[k][0] * x[0] + el.getdN_po_eta()[k][1] * x[1] + el.getdN_po_eta()[k][2] * x[2] + el.getdN_po_eta()[k][3] * x[3] );
-        J_odw[1][1] = el.getdN_po_ksi()[k][0] * x[0] + el.getdN_po_ksi()[k][1] * x[1] + el.getdN_po_ksi()[k][2] * x[2] + el.getdN_po_ksi()[k][3] * x[3];
+        J_odw[0][0] = J[1][1];
+        J_odw[1][0] = - 1 * J[1][0];
+        J_odw[0][1] = - 1 * J[0][1];
+        J_odw[1][1] = J[0][0];
     }
 
     private void setDetJ ( double[][] J ) {
