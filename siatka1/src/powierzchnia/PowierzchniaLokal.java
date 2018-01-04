@@ -1,8 +1,10 @@
-package siatka;
+package powierzchnia;
+
+import node.NodeLocal;
 
 public class PowierzchniaLokal {
 	public double[][] N;
-	NodeLocal nodes[];
+	public NodeLocal nodes[];
 
 	public PowierzchniaLokal ( NodeLocal n1, NodeLocal n2 ) {
 		N = new double[2][4];

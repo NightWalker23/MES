@@ -1,6 +1,7 @@
-package siatka;
+package node;
 
 public class NodeLocal {
+
 	double ksi, eta;
 
 	public NodeLocal ( double ksi, double eta ) {

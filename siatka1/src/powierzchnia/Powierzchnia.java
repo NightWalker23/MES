@@ -1,6 +1,9 @@
-package siatka;
+package powierzchnia;
+
+import node.Node;
 
 public class Powierzchnia {
+
 	Node nodes[];
 
 	public Powierzchnia ( Node n1, Node n2 ) {

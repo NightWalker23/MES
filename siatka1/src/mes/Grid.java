@@ -1,15 +1,20 @@
-package siatka;
+package mes;
 
+import node.Node;
+import element.Element;
+import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 
 public class Grid {
 
-    private Node[] nodes;
-    private Element[] elements;
+    public Node[] nodes;
+    public Element[] elements;
     GlobalData gd;
 
-    public Grid () {
-        gd = new GlobalData( "data.txt" );
+    private static Grid grid = null;
+
+    private Grid () throws FileNotFoundException {
+        gd = GlobalData.getInstance();
 
         //tworzenie elementów
         elements = new Element[gd.getNe()];
@@ -23,8 +28,14 @@ public class Grid {
         k = 0;
         for ( int i = 0; i < gd.getnB(); i++ )
             for ( int j = 0; j < gd.getnH(); j++ )
-                nodes[k++] = new Node( i * gd.getdB(), j * gd.getdH(), 0.0 );
+                nodes[k++] = new Node( i * gd.getdB(), j * gd.getdH() );
     }
+
+    public static Grid getInstance() throws FileNotFoundException {
+    	if (grid == null)
+    		grid = new Grid();
+    	return grid;
+	}
 
     public void showElements () {
         System.out.println( "\nELEMENTY\n" );
@@ -33,25 +44,25 @@ public class Grid {
         int skok = gd.getNe() / ( gd.getnB() - 1 );
         Node[] n;
 
-        n = elements[0].getID();
+        n = elements[0].getNodeID();
         for ( int j = 0; j < 4; j++ )
             System.out.println( dec.format( n[j].getX() ) + "\t" + dec.format( n[j].getY() ) + "\t" + n[j].getStatus() );
         System.out.println();
 
 
-        n = elements[elements.length - skok].getID();
+        n = elements[elements.length - skok].getNodeID();
         for ( int j = 0; j < 4; j++ )
             System.out.println( dec.format( n[j].getX() ) + "\t" + dec.format( n[j].getY() ) + "\t" + n[j].getStatus() );
         System.out.println();
 
 
-        n = elements[elements.length - 1].getID();
+        n = elements[elements.length - 1].getNodeID();
         for ( int j = 0; j < 4; j++ )
             System.out.println( dec.format( n[j].getX() ) + "\t" + dec.format( n[j].getY() ) + "\t" + n[j].getStatus() );
         System.out.println();
 
 
-        n = elements[skok - 1].getID();
+        n = elements[skok - 1].getNodeID();
         for ( int j = 0; j < 4; j++ )
             System.out.println( dec.format( n[j].getX() ) + "\t" + dec.format( n[j].getY() ) + "\t" + n[j].getStatus() );
         System.out.println();

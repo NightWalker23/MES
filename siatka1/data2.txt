@@ -1,10 +1,10 @@
 0,1		H						wysokosc przekroju, m;
 0,1		B						szerokosc przekroju, m;
-4		nH						liczba wezlow po wysokosci;
-4		nB						iczba wezlow po szerokosci;
+31		nH						liczba wezlow po wysokosci;
+31		nB						iczba wezlow po szerokosci;
 100		initialTemperature		temperatura poczatkowa, C;
-500 	simulationTime			czas procesu, s;
-50		simulationStepTime		krok czasowy, s;
+100 	simulationTime			czas procesu, s;
+1		simulationStepTime		krok czasowy, s;
 1200	ambientTemperature		temperatura otoczenia, C;
 300		alfa					wspolczynnik wymiany ciepla, W/cm2;
 700		specificHeat			cieplo wlasciwe, J/Ckg;
