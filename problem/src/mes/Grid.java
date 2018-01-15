@@ -28,8 +28,8 @@ public class Grid {
 		for ( int i = 0; i < ( gd.getnB() - 1 ); i++ ) {
 			for ( int j = 0; j < ( gd.getnH() - 1 ); j++ ) {
 
-				//podział na 3 równe części szyba-powietrze-szyba
-				if ( ( i < 2 * ( gd.getnB() - 1 ) / 3.0 ) && ( i >= ( gd.getnB() - 1 ) / 3.0 ) ) {
+				//podział na 3 części szyba(5mm)-powietrze(10mm)-szyba(5mm)
+				if ( ( i < 3 * ( gd.getnB() - 1 ) / 4.0 ) && ( i >= ( gd.getnB() - 1 ) / 4.0 ) ) {
 					alfa = gd.getAlfa2();
 					specificHeat = gd.getSpecificHeat2();
 					conductivity = gd.getConductivity2();
@@ -94,7 +94,7 @@ public class Grid {
 		System.out.println( "\nELEMENTY\n" );
 
 		for ( int i = 0; i < elements.length; i++ ) {
-			if ( i % (gd.getnB()-1) == 0 && i != 0 )
+			if ( i % (gd.getnH()-1) == 0 && i != 0 )
 				System.out.println();
 			System.out.print( elements[i].alfa + "\t" );
 
