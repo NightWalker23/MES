@@ -1,0 +1,17 @@
+0,1		H						wysokosc przekroju, m
+0,1		B						szerokosc przekroju, m
+10		nH						liczba wezlow po wysokosci
+10		nB						iczba wezlow po szerokosci
+20		initialTemperature		temperatura poczatkowa, C
+3600   	simulationTime			czas procesu, s
+1		simulationStepTime		krok czasowy, s
+20  	ambientTemperature		temperatura otoczenia wewnątrz, C
+2   	ambientTemperature2		temperatura otoczenia na zewnątrz, C
+300		alfa1					wspolczynnik wymiany ciepla, W/(K*m^2)
+150		alfa2					wspolczynnik wymiany ciepla, W/(K*m^2)
+700		specificHeat1			cieplo wlasciwe, J/(kg*C)
+350		specificHeat2			cieplo wlasciwe, J/(kg*C)
+25		conductivity1			wspolczynnik przewodzenia ciepla, W/(C*m^2)
+12		conductivity2			wspolczynnik przewodzenia ciepla, W/(C*m^2)
+7800	density1				gestosc, kg/m^3
+3900	density2				gestosc, kg/m^3
