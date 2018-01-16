@@ -17,7 +17,7 @@ public class GlobalData {
 
 	private final double initialTemperature;			//temperatura początkowa
 	private final double simulationTime;				//czas procesu
-	private final double simulationStepTime;			//początkowa wartość przyrostu czasu
+	private double simulationStepTime;					//początkowa wartość przyrostu czasu
 	private final double ambientTemperature;			//temperatura otoczenia wewnątrz
 	private final double ambientTemperature2;			//temperatura otoczenia na zewnątrz
 	private final double alfa;							//wspołczynnik wymiany ciepła
@@ -75,6 +75,10 @@ public class GlobalData {
 
 		ne = ( nH - 1 ) * ( nB - 1 );
 		nh = nH * nB;
+
+		//optymalny krok czasowy
+		double Asr = conductivity / ( specificHeat * density );
+		simulationStepTime = Math.pow( B / nB, 2 ) / ( 0.5 * Asr );
 	}
 
 	public static GlobalData getInstance () throws FileNotFoundException {

@@ -1,14 +1,14 @@
-0,1		H						wysokosc przekroju, m
+0,01	H						wysokosc przekroju, m
 0,02	B						szerokosc przekroju, m
-10		nH						liczba wezlow po wysokosci
+2		nH						liczba wezlow po wysokosci
 21		nB						iczba wezlow po szerokosci
 20		initialTemperature		temperatura poczatkowa, C
-43200  	simulationTime			czas procesu, s
+3600  	simulationTime			czas procesu, s
 1		simulationStepTime		krok czasowy, s
 20  	ambientTemperature		temperatura otoczenia wewnątrz, C
 -10   	ambientTemperature2		temperatura otoczenia na zewnątrz, C
-10		alfa1					wspolczynnik wymiany ciepla, W/(K*m^2)
-40		alfa2					wspolczynnik wymiany ciepla, W/(K*m^2)
+30		alfa1					wspolczynnik wymiany ciepla, W/(K*m^2)
+30		alfa2					wspolczynnik wymiany ciepla, W/(K*m^2)
 670		specificHeat1			cieplo wlasciwe szkła, J/(kg*C)
 1005	specificHeat2			cieplo wlasciwe powietrza, J/(kg*C)
 0,75	conductivity1			wspolczynnik przewodzenia ciepla szkła, W/(C*m^2)
