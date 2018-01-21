@@ -46,8 +46,6 @@ public class GlobalData {
 		input.nextLine();
 		this.simulationTime = input.nextDouble();
 		input.nextLine();
-		this.simulationStepTime = input.nextDouble();
-		input.nextLine();
 		this.ambientTemperature = input.nextDouble();
 		input.nextLine();
 		this.ambientTemperature2 = input.nextDouble();
@@ -77,7 +75,9 @@ public class GlobalData {
 		nh = nH * nB;
 
 		//optymalny krok czasowy
-		double Asr = conductivity / ( specificHeat * density );
+		double Asr1 = conductivity / ( specificHeat * density );
+		double Asr2 = conductivity2 / ( specificHeat2 * density2 );
+		double Asr = ( Asr1 + Asr2 ) / 2.0;
 		simulationStepTime = Math.pow( B / nB, 2 ) / ( 0.5 * Asr );
 	}
 

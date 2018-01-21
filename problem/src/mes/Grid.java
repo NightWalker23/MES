@@ -96,9 +96,9 @@ public class Grid {
 		for ( int i = 0; i < elements.length; i++ ) {
 			if ( i % (gd.getnH()-1) == 0 && i != 0 )
 				System.out.println();
-			System.out.print( elements[i].alfa + "\t" );
-
+			System.out.print( elements[i].specificHeat + "\t" );
 		}
+		System.out.println();
 	}
 
 	public void showNodes () {

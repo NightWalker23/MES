@@ -65,19 +65,18 @@ public class Fourier {
 
 			//wyciągamy dane z elementu z siatki
 			for ( int i = 0; i < 4; i++ ) {
-				id = grid.elements[el_nr].globalNodeID[i];
-				x[i] = grid.nodes[id].getX();
-				y[i] = grid.nodes[id].getY();
-				temp_el[i] = grid.nodes[id].getT();
-
 				alfa = grid.elements[el_nr].alfa;
 				specificHeat = grid.elements[el_nr].specificHeat;
 				conductivity = grid.elements[el_nr].conductivity;
 				density = grid.elements[el_nr].density;
+				id = grid.elements[el_nr].globalNodeID[i];
+				x[i] = grid.nodes[id].getX();
+				y[i] = grid.nodes[id].getY();
+				temp_el[i] = grid.nodes[id].getT();
 			}
 
-			//dla sposobu dwupunktowego
-			for ( int pc = 0; pc < 4; pc++ ) { // 4 - liczba punktow calkowania po powierzchni w elemencie
+			//metoda dwupunktowa
+			for ( int pc = 0; pc < 4; pc++ ) { // 4 - liczba punktow calkowania w elemencie
 				jakobian = new Jakobian( x, y, pc ); //jakobian dla danego punktu całkowania
 				temp_interpol = 0;
 
@@ -105,7 +104,7 @@ public class Fourier {
 			for ( int ipow = 0; ipow < grid.elements[el_nr].getLiczbaPowierzchni(); ipow++ ) { //lecimy po tych powierzchniach kontaktowych z otoczeniem
 				id = grid.elements[el_nr].getLokalLiczPow()[ipow]; //z elementu wyciągamy id powierzchni lokalnej (0|1|2|3)
 				//zależnie od tego która to jest powierzchnia
-				//to jest obliczenie tego delta x / 2
+				//to jest obliczenie delta x / 2
 				if ( id == 0 )
 					detj = Math.sqrt( Math.pow( grid.elements[el_nr].nodeID[3].getX() - grid.elements[el_nr].nodeID[0].getX(), 2 ) + Math.pow( grid.elements[el_nr].nodeID[3].getY() - grid.elements[el_nr].nodeID[0].getY(), 2 ) ) / 2.0;
 				else if ( id == 1)
@@ -123,7 +122,6 @@ public class Fourier {
 						for ( int i = 0; i < 4; i++ )
 							H_local[n][i] += alfa * el_lok.getPowLok()[id].N[p][n] * el_lok.getPowLok()[id].N[p][i] * detj; //dodajemy warunek brzegowy na powierzchni
 
-//						P_local[n] += alfa * gd.getAmbientTemperature() * el_lok.getPowLok()[id].N[p][n] * detj;
 						if ( id == 0 ) P_local[n] += alfa * gd.getAmbientTemperature() * el_lok.getPowLok()[id].N[p][n] * detj;
 						if ( id == 2 ) P_local[n] += alfa * gd.getAmbientTemperature2() * el_lok.getPowLok()[id].N[p][n] * detj;
 					}
